@@ -229,11 +229,11 @@
       const liemoji = event.currentTarget.children[0].textContent
       const liChoice = event.currentTarget
       
-        // if(event.currentTarget.style.backgroundColor === "grey"){
-          if(document.querySelector("li").style.backgroundColor === "grey"){
+        if(event.currentTarget.style.backgroundColor === "grey"){
           // console.log(liValue)
           // console.log(inputValue)
           event.currentTarget.style.backgroundColor = "pink"
+          console.log("상품을 선택했습니다.")
           
           button[0].addEventListener("click",function(){
             const inputValue = parseInt(input[0].value)
@@ -243,11 +243,17 @@
             else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
               console.log("금액이 부족합니다.")
             }
+            else {
+              console.log("상품을 선택해주세요.")
+            }
           })
         }
         
-        else if(event.currentTarget.style.backgroundColor === "pink"){
+        // else if(event.currentTarget.style.backgroundColor === "pink"){
+          else{
           event.currentTarget.style.backgroundColor = "grey"
+          console.log("상품을 취소했습니다.")
+        
         }
       })
   }
