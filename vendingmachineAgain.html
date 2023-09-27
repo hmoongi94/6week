@@ -221,8 +221,7 @@
   button[0].textContent = "뽑기"
   console.dir(button[0])
 
-  // addEventListener
-  
+  // addEventListener 
   for(i=0; i<li.length; i++){
     li[i].addEventListener("click",function(eventTarget){
       // console.dir(event.currentTarget)             
@@ -230,9 +229,8 @@
       const liemoji = event.currentTarget.children[0].textContent
       const liChoice = event.currentTarget
       
-      
-      
-        if(event.currentTarget.style.backgroundColor === "grey"){
+        // if(event.currentTarget.style.backgroundColor === "grey"){
+          if(document.querySelector("li").style.backgroundColor === "grey"){
           // console.log(liValue)
           // console.log(inputValue)
           event.currentTarget.style.backgroundColor = "pink"
