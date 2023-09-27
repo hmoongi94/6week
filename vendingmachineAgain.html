@@ -229,15 +229,16 @@
       const liValue = parseInt(event.currentTarget.children[1].textContent)
       const liemoji = event.currentTarget.children[0].textContent
       const liChoice = event.currentTarget
-      const inputValue = parseInt(input[0].value)
+      
       
       
         if(event.currentTarget.style.backgroundColor === "grey"){
-          console.log(liValue)
-          console.log(inputValue)
+          // console.log(liValue)
+          // console.log(inputValue)
           event.currentTarget.style.backgroundColor = "pink"
           
           button[0].addEventListener("click",function(){
+            const inputValue = parseInt(input[0].value)
             if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
               console.log(`${liemoji}뽑았습니다.`)
             }
@@ -252,7 +253,8 @@
         }
       })
   }
-
+      
+  
 
 //   for(i=0; i<li.length; i++){
 //   button[0].addEventListener("click",function(){
