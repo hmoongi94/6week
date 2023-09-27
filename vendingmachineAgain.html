@@ -51,12 +51,12 @@
   // console.log(goods.goods1[1])
 
   // createElement태그
-  ul = document.getElementsByTagName("ul")
-  li = document.getElementsByTagName("li")
-  div = document.getElementsByTagName("div")
-  input = document.getElementsByTagName("input")
-  button = document.getElementsByTagName("button")
-  p = document.getElementsByTagName("p")
+  let ul = document.getElementsByTagName("ul")
+  let li = document.getElementsByTagName("li")
+  let div = document.getElementsByTagName("div")
+  let input = document.getElementsByTagName("input")
+  let button = document.getElementsByTagName("button")
+  let pTag = document.getElementsByTagName("p")
   // console.dir(li)
 
 
@@ -79,7 +79,7 @@
     li[i].style.listStyleType = "none"
     li[i].style.width = "16vh"
     li[i].style.height = "16vh"
-    li[i].style.backgroundColor = "#92AC98"
+    li[i].style.backgroundColor = "grey"
     li[i].style.display = "flex"
     li[i].style.flexShrink = "0"
     li[i].style.alignItems = "center"
@@ -104,18 +104,43 @@
 
     const keys = Object.keys(goods)
   for(i=0; i<keys.length; i++){
-    p[i*3].textContent = Object.values(goods)[i][1]
-    p[i*3].style.width = "12vh"
-    p[i*3].style.height = "8vh"
-    p[i*3].style.display = "flex"
-    p[i*3].style.alignItems = "center"
-    p[i*3].style.justifyContent = "center"
-    p[i*3].style.fontSize = "6vh"
-    p[i*3+1].textContent = Object.values(goods)[i][0]
-    p[i*3+2].textContent = i+1
-    p[i*3+2].style.marginTop = "2vw"
-    p[i*3+2].style.marginRight = "8vw"
+    pTag[i*3].textContent = Object.values(goods)[i][1]
+    pTag[i*3].style.width = "12vh"
+    pTag[i*3].style.height = "8vh"
+    pTag[i*3].style.display = "flex"
+    pTag[i*3].style.alignItems = "center"
+    pTag[i*3].style.justifyContent = "center"
+    pTag[i*3].style.fontSize = "6vh"
+    pTag[i*3+1].textContent = Object.values(goods)[i][0]
+    pTag[i*3+2].textContent = i+1
+    pTag[i*3+2].style.marginTop = "2vw"
+    pTag[i*3+2].style.marginRight = "8vw"
     }
+
+
+    // ul[0].addEventListener("click",function(eventTarget){
+    //   console.dir(eventTarget)
+    //     console.log(eventTarget.target.children[1].textContent)         
+    // })
+    
+    // for(i=0; i<li.length; i++){
+    //   li[i].addEventListener("click",function(eventTarget){
+    //     // console.dir(event.currentTarget)             
+    //     const liValue = parseInt(event.currentTarget.children[1].textContent)
+    //     const inputValue = input[0].value
+        
+    //     if(event.currentTarget.style.backgroundColor === "grey"){
+    //       console.log(liValue)
+    //       console.log(inputValue)
+    //       event.currentTarget.style.backgroundColor = "pink"
+    //       return liValue
+    //     }
+        
+    //     else if(event.currentTarget.style.backgroundColor === "pink"){
+    //       event.currentTarget.style.backgroundColor = "grey"
+    //     }
+    //   })
+    // }
 
     // console.log(Object.keys(goods)[0])
     // console.log(Object.values(goods)[0][0])
@@ -170,6 +195,13 @@
   input[0].style.boxShadow = "2px 4px 4px 0px rgba(0,0,0,0.10)"
   input[0].style.marginTop = "3.5vh"
 
+  
+  // input[0].addEventListener("click",function(){
+  //   console.dir(input[0])
+  // })
+  
+  
+
   // Button태그
   let makeButton = document.createElement("button")
   div[2].appendChild(makeButton)
@@ -186,6 +218,53 @@
   button[0].style.fontWeight = "400"
   button[0].style.marginTop = "7.5vh"
   button[0].style.marginLeft = "3.5vw"
+  button[0].textContent = "뽑기"
+  console.dir(button[0])
+
+  // addEventListener
+  
+  for(i=0; i<li.length; i++){
+    li[i].addEventListener("click",function(eventTarget){
+      // console.dir(event.currentTarget)             
+      const liValue = parseInt(event.currentTarget.children[1].textContent)
+      const liemoji = event.currentTarget.children[0].textContent
+      const liChoice = event.currentTarget
+      const inputValue = parseInt(input[0].value)
+      
+      
+        if(event.currentTarget.style.backgroundColor === "grey"){
+          console.log(liValue)
+          console.log(inputValue)
+          event.currentTarget.style.backgroundColor = "pink"
+          
+          button[0].addEventListener("click",function(){
+            if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
+              console.log(`${liemoji}뽑았습니다.`)
+            }
+            else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
+              console.log("금액이 부족합니다.")
+            }
+          })
+        }
+        
+        else if(event.currentTarget.style.backgroundColor === "pink"){
+          event.currentTarget.style.backgroundColor = "grey"
+        }
+      })
+  }
+
+
+//   for(i=0; i<li.length; i++){
+//   button[0].addEventListener("click",function(){
+    
+//     const inputValue = input[0].value 
+//     console.log(liValue)
+//     if(liValue !== null && inputValue !==null){
+//       console.log("뽑기")
+//     }
+
+//   })
+// }
   
 
   
