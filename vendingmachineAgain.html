@@ -228,6 +228,7 @@
   
   // addEventListener 
   for(i=0; i<li.length; i++){
+    
     li[i].addEventListener("click",function(eventTarget){
       // console.dir(event.currentTarget)             
       liValue = parseInt(event.currentTarget.children[1].textContent)
@@ -238,6 +239,9 @@
         ){
           // console.log(liValue)
           // console.log(inputValue)
+          for(i=0; i<li.length; i++){
+            li[i].style.background = "grey"
+          }
           event.currentTarget.style.backgroundColor = "pink"
           console.log("상품을 선택했습니다.")
         
