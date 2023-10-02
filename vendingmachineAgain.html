@@ -221,50 +221,59 @@
   button[0].textContent = "뽑기"
   console.dir(button[0])
 
+  
+  let liValue
+  let liemoji
+  let liChoice
 
-    let liValue
-    let liemoji
-    let liChoice
+   // liValue 중복된 값 합하기
+   for(i=0; i<li.length; i++){
+      if(li[i].style.bakcgroundColor==="pink"){
+        liValue = parseInt(li[i].children[1].textContent)
+      }
+    }
+  
   
   // addEventListener 
   for(i=0; i<li.length; i++){
     
     li[i].addEventListener("click",function(eventTarget){
       // console.dir(event.currentTarget)             
-      liValue = parseInt(event.currentTarget.children[1].textContent)
+      // liValue = parseInt(event.currentTarget.children[1].textContent)
       liemoji = event.currentTarget.children[0].textContent
       liChoice = event.currentTarget
       
-        if(event.currentTarget.style.backgroundColor === "grey"     
-        ){
-          // console.log(liValue)
-          // console.log(inputValue)
-          for(i=0; i<li.length; i++){
-            li[i].style.background = "grey"
-          }
-          event.currentTarget.style.backgroundColor = "pink"
-          console.log("상품을 선택했습니다.")
+      if(event.currentTarget.style.backgroundColor === "grey"     
+      ){
+        // console.log(liValue)
+        // console.log(inputValue)
         
-        }
+        event.currentTarget.style.backgroundColor = "pink"
+        console.log(liValue)
+        console.log("상품을 선택했습니다.")
         
-        // else if(event.currentTarget.style.backgroundColor === "pink"){
-          else{
+      }
+      
+      // else if(event.currentTarget.style.backgroundColor === "pink"){
+        else{
           event.currentTarget.style.backgroundColor = "grey"
           console.log("상품을 취소했습니다.")
-     
+          
         }
-    })
-  }
-
-        button[0].addEventListener("click",function(){
-            const inputValue = parseInt(input[0].value)
-            if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
-              console.log(`${liemoji}뽑았습니다.`)     
-              return "qqq"    
-            }
-            else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
-              console.log("금액이 부족합니다.")  
-              return "qq"          
+      })
+    }
+    
+    
+    
+    button[0].addEventListener("click",function(){
+      const inputValue = parseInt(input[0].value)
+      if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
+        console.log(`${liemoji}뽑았습니다.`)     
+        return "qqq"    
+      }
+      else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
+        console.log("금액이 부족합니다.")  
+        return "qq"          
             }
             else {
               console.log("상품을 선택해주세요.")
