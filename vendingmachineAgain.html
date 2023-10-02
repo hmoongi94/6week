@@ -226,30 +226,38 @@
   let liemoji
   let liChoice
 
-   // liValue 중복된 값 합하기
-   for(i=0; i<li.length; i++){
-      if(li[i].style.bakcgroundColor==="pink"){
-        liValue += parseInt(li[i].children[1].textContent)
-      }
-    }
-
-
 
   // addEventListener 
   for(i=0; i<li.length; i++){
     
     li[i].addEventListener("click",function(eventTarget){
       // console.dir(event.currentTarget)             
-      // liValue = parseInt(event.currentTarget.children[1].textContent)
+      liValue = parseInt(event.currentTarget.children[1].textContent)
       liemoji = event.currentTarget.children[0].textContent
       liChoice = event.currentTarget
       
       if(event.currentTarget.style.backgroundColor === "grey"     
       ){
         // console.log(liValue)
-        // console.log(inputValue)
-        
+        // console.log(inputValue)       
+
+      // 중복선택 시, 색 초기화
+          for(i=0; i<li.length; i++){
+              li[i].style.background = "grey"
+            }
         event.currentTarget.style.backgroundColor = "pink"
+
+
+      // liValue 중복선택 값 합하기 
+
+        // for(i=0; i<li.length; i++){
+        //   if(li[i].style.bakcgroundColor==="pink"){
+        //     liValue += parseInt(li[i].children[1].textContent)
+        //   }
+        // }
+
+  
+
         console.log(liValue)
         console.log("상품을 선택했습니다.")
         
