@@ -212,6 +212,19 @@
   let makeH2 = document.createElement("h1")
   div[5].appendChild(makeH2)
 
+  // 잔돈 버튼 눌렀을 때
+  let makeDiv6 = document.createElement("div")
+  root.appendChild(makeDiv6)
+  div[6].style.width="100vw"
+  div[6].style.height="100vh"
+  div[6].style.display = "flex"
+  div[6].style.justifyContent = "center"
+  div[6].style.alignItems = "center"
+  div[6].style.position = "absolute"
+  div[6].style.zIndex = -3
+  let makeH3 = document.createElement("h1")
+  div[6].appendChild(makeH3)
+
   // Input태그
   let makeInput = document.createElement("input")
   div[2].appendChild(makeInput)
@@ -256,6 +269,7 @@
   let liValue
   let liemoji
   let liChoice
+  let inputValue
 
 
   // addEventListener 
@@ -304,7 +318,7 @@
     }
     
     button[0].addEventListener("click",function(){
-      const inputValue = parseInt(input[0].value)
+      inputValue = parseInt(input[0].value)
       if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
         console.log(`${liemoji}뽑았습니다.`)
         div[4].style.zIndex = 1
@@ -344,10 +358,26 @@
 
           })
     
-    div[4].addEventListener("click",function(eventTarget){
-      event.currentTarget.style.zIndex = -1
-      event.currentTarget.children[0].textContent = ""
+    div[4].addEventListener("click",function(Target){
+      if(event.target === button[1]){
+        div[6].style.zIndex = 1
+        div[6].style.fontSize = "5vw"
+        div[6].style.backdropFilter = "blur(20.5px)"
+        div[6].children[0].textContent = `${inputValue-liValue}원이  남았습니다.`
+
+        div[6].addEventListener("click",function(){
+          div[5].style.textContent =""
+          div[6].style.zIndex = -3
+          div[6].style.textContent =""
+          div[6].children[0].textContent.remove()
+        })
+      }
+      else{
+      div[4].style.zIndex = -1
+      div[4].children[0].textContent = ""
       button[1].remove()
+      console.dir(Target)
+      }
 
     })
 
