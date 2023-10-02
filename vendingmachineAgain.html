@@ -201,16 +201,15 @@
   // "금액이 부족합니다"
   let makeDiv5 = document.createElement("div")
   root.appendChild(makeDiv5)
-  root.appendChild(makeDiv4)
   div[5].style.width="100vw"
   div[5].style.height="100vh"
   div[5].style.display = "flex"
   div[5].style.justifyContent = "center"
   div[5].style.alignItems = "center"
   div[5].style.position = "absolute"
-  div[5].style.zIndex = -1
+  div[5].style.zIndex = -2
   let makeH2 = document.createElement("h1")
-  div[4].appendChild(makeH2)
+  div[5].appendChild(makeH2)
 
   // Input태그
   let makeInput = document.createElement("input")
@@ -330,6 +329,16 @@
 
           })
     
+    div[4].addEventListener("click",function(eventTarget){
+      event.currentTarget.style.zIndex = -1
+      event.currentTarget.children[0].textContent = ""
+
+    })
+
+    div[5].addEventListener("click",function(eventTarget){
+      event.currentTarget.style.zIndex = -2
+      event.currentTarget.children[0].textContent = ""
+    })
       
   
 
