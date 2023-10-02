@@ -229,11 +229,12 @@
    // liValue 중복된 값 합하기
    for(i=0; i<li.length; i++){
       if(li[i].style.bakcgroundColor==="pink"){
-        liValue = parseInt(li[i].children[1].textContent)
+        liValue += parseInt(li[i].children[1].textContent)
       }
     }
-  
-  
+
+
+
   // addEventListener 
   for(i=0; i<li.length; i++){
     
