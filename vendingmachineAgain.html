@@ -366,10 +366,12 @@
         div[6].children[0].textContent = `${inputValue-liValue}원이  남았습니다.`
 
         div[6].addEventListener("click",function(){
-          div[5].style.textContent =""
+          div[4].style.zIndex = -1
+          div[4].children[0].textContent = ""
+          button[1].remove()
           div[6].style.zIndex = -3
-          div[6].style.textContent =""
-          div[6].children[0].textContent.remove()
+          div[6].children[0].textContent =""
+
         })
       }
       else{
