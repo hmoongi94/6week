@@ -191,6 +191,7 @@
   div[4].style.width="100vw"
   div[4].style.height="100vh"
   div[4].style.display = "flex"
+  div[4].style.flexDirection = "column"
   div[4].style.justifyContent = "center"
   div[4].style.alignItems = "center"
   div[4].style.position = "absolute"
@@ -302,8 +303,6 @@
       })
     }
     
-    
-    
     button[0].addEventListener("click",function(){
       const inputValue = parseInt(input[0].value)
       if(inputValue>=liValue && liChoice.style.backgroundColor === "pink"){
@@ -312,8 +311,24 @@
         div[4].style.fontSize = "5vw"     
         div[4].children[0].textContent = `${liemoji}를 뽑았습니다`
         div[4].style.backdropFilter = "blur(20.5px)"
-        
+
+        let makeButton2 = document.createElement("button")
+        div[4].appendChild(makeButton2)
+        button[1].style.width = "28vh"
+        button[1].style.height = "28vh"
+        button[1].style.fontSize = "9vh"
+        button[1].style.color = "white"
+        button[1].style.borderRadius = "163.5px"
+        button[1].style.background = "#f66"
+        button[1].style.boxShadow = "2px 4px 4px 0px rgba(0,0,0,0.10)"
+        button[1].style.textAlign = "center"
+        button[1].style.justifyContent = "center"
+        button[1].style.fontWeight = "400"
+        button[1].style.marginTop = "7.5vh"
+        button[1].style.marginLeft = "3.5vw"
+        button[1].textContent = "잔돈"
       }
+
       else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
         console.log("금액이 부족합니다.")  
         div[5].style.zIndex = 1
@@ -332,6 +347,7 @@
     div[4].addEventListener("click",function(eventTarget){
       event.currentTarget.style.zIndex = -1
       event.currentTarget.children[0].textContent = ""
+      button[1].remove()
 
     })
 
