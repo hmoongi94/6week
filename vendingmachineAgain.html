@@ -184,6 +184,8 @@
   div[3].style.marginTop="10vh"
   div[3].textContent="Green Academy Vending Machine"
 
+
+  // "liEmoji를 뽑았습니다."
   let makeDiv4 = document.createElement("div")
   root.appendChild(makeDiv4)
   div[4].style.width="100vw"
@@ -195,6 +197,20 @@
   div[4].style.zIndex = -1
   let makeH1 = document.createElement("h1")
   div[4].appendChild(makeH1)
+
+  // "금액이 부족합니다"
+  let makeDiv5 = document.createElement("div")
+  root.appendChild(makeDiv5)
+  root.appendChild(makeDiv4)
+  div[5].style.width="100vw"
+  div[5].style.height="100vh"
+  div[5].style.display = "flex"
+  div[5].style.justifyContent = "center"
+  div[5].style.alignItems = "center"
+  div[5].style.position = "absolute"
+  div[5].style.zIndex = -1
+  let makeH2 = document.createElement("h1")
+  div[4].appendChild(makeH2)
 
   // Input태그
   let makeInput = document.createElement("input")
@@ -301,7 +317,11 @@
       }
       else if(inputValue<liValue && liChoice.style.backgroundColor === "pink"){
         console.log("금액이 부족합니다.")  
-        return "qq"          
+        div[5].style.zIndex = 1
+        div[5].style.fontSize = "5vw"     
+        div[5].children[0].textContent = `금액이 부족합니다!`
+        div[5].style.backdropFilter = "blur(20.5px)"
+               
             }
             else {
               console.log("상품을 선택해주세요.")
